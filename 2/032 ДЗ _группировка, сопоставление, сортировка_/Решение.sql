@@ -28,3 +28,28 @@ WHERE ship_region IS NOT NULL
 GROUP BY ship_country
 HAVING SUM(freight) > 2750
 ORDER BY SUM(freight) DESC
+/* 7 */
+SELECT  country
+FROM suppliers 
+UNION
+SELECT country
+FROM customers 
+ORDER BY country
+/* 8 */
+SELECT  country
+FROM employees
+INTERSECT
+SELECT country
+FROM customers 
+INTERSECT
+SELECT  country
+FROM suppliers 
+/* 9 */
+SELECT country
+FROM customers 
+INTERSECT
+SELECT  country
+FROM suppliers 
+EXCEPT
+SELECT  country
+FROM employees 
